@@ -2,6 +2,10 @@
 import Navbar from "../components/Navbar.astro";
 //Server Only
 
+interface Props {
+  title: string;
+}
+
 const { title } = Astro.props;
 ---
 
