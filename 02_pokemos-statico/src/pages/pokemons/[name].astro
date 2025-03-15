@@ -1,18 +1,38 @@
 ---
 import type { GetStaticPaths } from "astro";
 import Layout from "../../layouts/Layout.astro";
+import PokemonsCard from "../../components/pokemons/pokemonsCard.astro";
 
 export const getStaticPaths = (() => {
   return [
     {
       params: { name: "venusaur" },
+      props: { name: "uno", url: "https://pokeapi.co/api/v2/pokemon/4/" },
+    },
+    {
+      params: { name: "bulbasaur" },
+      props: { name: "uno", url: "https://pokeapi.co/api/v2/pokemon/1/" },
     },
   ];
 }) satisfies GetStaticPaths;
+
+const { name } = Astro.params;
+const { url } = Astro.props;
+
+const id = url.split("/").at(-2);
+const audio_src = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${id}.ogg`;
 ---
 
 <Layout title="jola">
-  <div>
-    <h1>hola</h1>
-  </div>
+  <section class="mt-10 mx-10 flex flex-col justify-center items-center">
+    <div>
+      <a href="/">Regresar</a>
+      <h1 class="text-2xl capitalize">{name}</h1>
+      <PokemonsCard name={name} url={url} />
+
+      <audio class="mt-10" controls>
+        <source src={audio_src} type="audio/ogg" />
+      </audio>
+    </div>
+  </section>
 </Layout>
