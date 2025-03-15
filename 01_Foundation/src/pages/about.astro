@@ -1,8 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import About from "../components/About.astro";
 ---
 
-<Layout>
-  <About />
+<Layout title="About">
+  <div class="uno">
+    <div>
+      <p>Momento actual: {new Date().toLocaleTimeString()}</p>
+    </div>
+
+    <footer>
+      <p>Año actual: {new Date().getFullYear()}</p>
+      <p id="year"></p>
+      <p class="momento"></p>
+    </footer>
+  </div>
+  <script>
+    //Client Only
+    const currentYear = new Date().getFullYear();
+    const year = document.querySelector("#year") as HTMLElement;
+    year.innerText = ` año: ${currentYear}`;
+    //
+    const yearActual = document.querySelector(".momento") as HTMLElement;
+    const yea = new Date().toLocaleTimeString();
+
+    yearActual.innerText = `Momento actualizado ${yea}`;
+  </script>
 </Layout>
