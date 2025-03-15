@@ -1,9 +1,30 @@
 ---
+import { PokermonListResponse } from "../interfaces/pekemosList";
 import Layout from "../layouts/Layout.astro";
 
 const title = "Pokemon Static | Home";
+
+const URL_API = `https://pokeapi.co/api/v2/pokemon`;
+
+//1. Consultando a la API
+
+const respuesta = await fetch(URL_API);
+const resultado = (await respuesta.json()) as PokermonListResponse;
+console.log(resultado);
 ---
 
 <Layout title={title}>
-  <div class="text-2xl bg-amber-300">Hola mndo</div>
+  <div class="text-2xl">
+    <h1 class="text-3xl">Listado de Pokemons</h1>
+    <hr />
+    <ul>
+      {
+        resultado.results.map((pokemon) => (
+          <li>
+            <p>{pokemon.name}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </Layout>
