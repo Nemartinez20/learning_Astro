@@ -1,0 +1,21 @@
+---
+interface Props {
+  name: string;
+  url: string;
+}
+
+//desestructurar
+
+const { name, url } = Astro.props;
+const id = url.split("/").at(-2);
+
+const imageURL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`;
+---
+
+<a
+  href=`/pokemons/${name}`
+  class="flex flex-col justify-center items-center p-2 border border-slate-200"
+>
+  <img src={imageURL} alt={name} class="" />
+  <p class="capitalize">{name}</p>
+</a>
