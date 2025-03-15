@@ -1,6 +1,4 @@
 ---
-import Name from "../../pages/pokemons/[name].astro";
-
 interface Props {
   name: string;
   url: string;
@@ -17,7 +15,7 @@ const imageURL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprit
 
 <!-- class={`flex flex-col justify-center items-center p-2  border-slate-200 ${!isBig && "border"}`} --><!-- href=`/pokemons/${name}` -->
 <a
-  href=`/pokemon/${id}`
+  href=`/pokemons/${name}`
   class:list={[
     `flex flex-col justify-center items-center p-2  border-slate-200`,
     {

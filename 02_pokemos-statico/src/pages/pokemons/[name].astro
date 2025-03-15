@@ -35,7 +35,11 @@ const id = url.split("/").at(-2);
 const audio_src = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${id}.ogg`;
 ---
 
-<Layout title={name}>
+<Layout
+  title={`#${id} - ${name}`}
+  description={`Esta es la descripcion del pokemon ${name}`}
+  image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`}
+>
   <section class="mt-10 mx-10 flex flex-col justify-center items-center">
     <div>
       <a href="/">Regresar</a>
