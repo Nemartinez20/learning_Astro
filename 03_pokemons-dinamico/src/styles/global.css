@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+.btn {
+   background-color: oklch(0.623 0.214 259.815);
+   padding: 8px 12px;
+   border-radius: 5px;
+   color: white;
+   cursor: pointer;
+   
+  }
+  .disabled {
+    background-color: rgba(128, 128, 128, 0.385);
+    color: gray;
+    
+  }
