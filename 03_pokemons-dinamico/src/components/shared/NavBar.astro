@@ -1,0 +1,25 @@
+---
+const links = [
+  { href: "/", text: "Listado" },
+  { href: "/pokemons/1", text: "Paginado" },
+  { href: "/favorites", text: "Favoritos" },
+];
+---
+
+<!-- component -->
+<nav class="bg-slate-800 shadow dark:bg-gray-800 text-white">
+  <div
+    class="container flex items-center justify-center p-6 mx-auto text-white capitalize dark:text-gray-300"
+  >
+    {
+      links.map((link) => (
+        <a
+          href={link.href}
+          class="text-white dark:text-gray-200 border-b-2 border-blue-500 mx-1.5 sm:mx-6"
+        >
+          {link.text}
+        </a>
+      ))
+    }
+  </div>
+</nav>
